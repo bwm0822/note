@@ -1,0 +1,565 @@
+/* For mobile phone */        /* For tablet */
+@media only screen and (max-device-width: 1023px)
+{
+    @media (orientation: portrait)
+    {
+        :root
+        {
+            --font-size: 48px;
+        }
+    }
+
+    @media (orientation: landscape)
+    {
+        :root
+        {
+            --font-size: 24px;
+        }
+    }
+}
+
+/* For desktop */
+@media only screen and (min-device-width: 1024px)
+{
+    :root
+    {
+        --font-size: 16px;
+    }
+}
+
+html
+{
+    font-size: var(--font-size);
+    --bar-height: calc(var(--font-size)*1.5);
+}
+
+.frame 
+{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: skyblue;
+}
+
+
+.header
+{
+    background-color: LightSeaGreen;
+    display: flex;
+    /*flex-direction: row-reverse;*/
+    align-items: center;            /* 垂直置中 */
+    justify-content: space-between;
+    padding-left : 1rem;
+    padding-right: 1rem;
+}
+
+.wrapper
+{
+    display: flex;
+    flex-direction: column;
+    /*align-items: center; */
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.footer
+{
+    display: flex;
+    justify-content: space-between;
+    height: 10%;
+}
+
+
+
+
+.page
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.bg
+{
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+}
+
+.win
+{
+    position: absolute;
+    background-color: rgb(200,200,200);
+    min-height: 50%;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+}
+
+/* drop */
+.drop-btn 
+{
+    position: relative;
+    /*background-color: #3498db;*/
+    background-color: burlywood;
+    color: black;
+    cursor: pointer;
+    border: none;
+}
+
+.drop-btn:hover
+{
+    color: white;
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+.drop-content 
+{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    right:0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop-content label 
+{
+    color: black;
+    padding: 0px 5px;
+    text-decoration: none;
+    display: block;
+}
+
+.drop-content label:hover 
+{
+    /*background-color: #f1f1f1;*/
+    background-color: rgba(0,0,0,0.2);
+}
+
+.drop-cat
+{
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.empty
+{
+    display: inline-block;
+    width: var(--font-size);
+}
+
+input[type=checkbox]:checked~.empty
+{
+    display: none;
+}
+
+input[type=checkbox]+.bi-check
+{
+    display: none;
+}
+
+input[type=checkbox]:checked+.bi-check
+{
+    display: inline-block;
+}
+
+/* transcript */
+.transcript
+{
+    position: absolute;
+    height: 50%;
+    width: 75%;
+    background-color:lightblue;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+    border: 0.25rem white solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.transcript-list
+{
+    display: flex;
+    height: 70%;
+    overflow-y: auto;
+    flex-direction: column;
+    row-gap: 5px;
+    flex-grow: 1;
+}
+
+.transcript-grid
+{
+    display: grid;
+    grid-template-columns: calc(var(--font-size)*2) calc(var(--font-size)*2) 1fr;
+    gap: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.c-ng
+{
+    background-color: coral;
+}
+
+.c-ok:hover, .c-ng:hover
+{
+    background-color: gray;
+}
+
+/* card */
+.card
+{
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    background-color: LightSeaGreen;;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+    border: 0.25rem white solid;
+}
+
+.btn-star
+{
+    color: yellow;
+}
+
+.card-info
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.card-word, .card-local
+{
+    position: relative;
+    display: flex;
+    font-size: 1rem;
+    justify-content: center;     /* 水平置中 */
+    align-items: center;        /* 垂直置中 */
+    flex-grow: 1;
+}
+
+.card-word:active, .card-local:active
+{
+    background-color: lightblue;
+}
+
+.card-speaker
+{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    font-size: 1.5rem;
+    transform: translate(0,-50%);
+}
+
+.card img
+{
+    background-color: whitesmoke;
+    width: 90%;
+    margin-left: 5%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.card .voca, .card .sentence
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#pro
+{
+    position: relative;
+}
+
+#pro:active::before
+{
+    position: absolute;
+    content: '熟練度';
+    /*top: calc(var(--font-size)*1.5);*/
+    top:0;
+    left: 0;
+    color: white;
+    background-color: rgba(50,50,50,0.5);
+    white-space: nowrap;
+    border-radius: 1rem;;
+    padding: 0 0.5rem 0 0.5rem;
+    transform: translate(-100%,0);
+}
+
+
+/* progress */
+.progress-wrapper
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: var(--font-size);
+    width: 50%;
+}
+
+progress 
+{
+    -webkit-appearance:none;
+    -moz-appearance:none;        
+    appearance: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* 調整進度條的外觀 */
+progress::-webkit-progress-bar 
+{
+    background-color: #505050;
+    border-radius: 1rem;
+}
+  
+/* 調整進度值的樣式 */
+progress::-webkit-progress-value 
+{
+    background-color: cornflowerblue;
+    border-radius: 1rem;
+}
+
+.progress-label 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: calc(var(--font-size)*2/3);
+    color: white;
+    white-space: nowrap; 
+}
+
+.progress-cancel
+{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: calc(var(--font-size)*2/3);
+    appearance: none;
+    border: none;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 0 1rem;
+} 
+
+/* upload */
+.side span
+{
+    position: absolute;
+    color: white;
+    background-color: red;
+    font-size: calc(var(--font-size)*0.5);
+    border-radius: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    display: none;
+}
+
+input[type=checkbox], input[type=radio]
+{
+    display: none;
+}
+
+input[type=checkbox]:checked+.bi-square, input[type=checkbox]~.bi-check-square
+{
+    display: none;
+}
+
+input[type=checkbox]:checked~.bi-check-square
+{
+    display: inline;
+}
+
+input[type=radio]:checked+.bi-circle, input[type=radio]~.bi-record-circle
+{
+    display: none;
+}
+
+input[type=radio]:checked~.bi-record-circle
+{
+    display: inline;
+}
+
+.btn-Close
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(100%,-100%);
+    color:white;
+    font-size: 1.5rem;
+}
+
+/*
+.btn-Close:active
+{
+    color: black;
+}
+*/
+
+.extend
+{
+    color: black;
+    width: calc(var(--font-size)*2.5);
+}
+
+.extend:hover
+{
+    color:white;
+}
+
+.block
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     /* 水平置中 */
+    align-items: center;        /* 垂直置中 */
+    flex-grow:1;
+}
+
+/*
+.sentence .text
+{
+    flex-grow: 1;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    text-align: center;
+    line-height: 2rem;
+}
+*/
+/*
+.sentence .text
+{
+   
+    height: 100%;
+}
+*/
+
+.sentence label:active
+{
+    background-color: gray;
+}
+
+
+/* card-ticket */
+/*
+.card label, .card span
+{
+    text-align: center;
+}
+*/
+
+
+.card input
+{
+    width: 80%;
+}
+
+.speaker
+{
+    position: relative;
+    display: flex;
+    background-color: lightblue;
+    width: 90%;
+    margin-left: 5%;
+    min-height: 50%;
+    max-height: 50%;
+    justify-content: center;     /* 水平置中 */
+    align-items: center;        /* 垂直置中 */
+}
+
+.sound
+{
+    display: none;
+    font-size: 1.5rem;
+}
+
+.btn-verify
+{
+    appearance: none;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 1rem;
+}
+
+.btn-verify:hover
+{
+    color: white;
+    background-color: lightgray;
+}
+
+/*
+.btn-verify:active
+{
+    color: white;
+    background-color: gray;
+}
+*/
+
+/* config */
+.config
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 1rem;;
+}
+
+.item-title, .item-content, .item
+{
+    padding: 0.25rem 1rem;
+}
+
+.item
+{
+    grid-column: 1/3;
+}
+
+.item input:checked+label
+{
+    background-color: white;
+}
+
+.divider
+{
+    margin: 5px;
+    background-color: gray;
+    height: 1px;
+    padding: 0rem;
+}
+
+
+
+
+
+
